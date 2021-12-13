@@ -73,7 +73,7 @@ const App = () => {
     return (
         <Router>
             <div>
-                <Navbar totalItems={cart.total_items}/>
+                <Navbar totalItems={cart.total_items}/>           
                 <Routes>
                     <Route exact path="/" element={<Products products={products} onAddToCart={handleAddToCart} />}/>  
                     <Route exact path="/cart" element={
@@ -89,6 +89,7 @@ const App = () => {
                             cart={cart}
                             order={order} 
                             onCaptureCheckout={handleCapturedCheckout}
+                            refreshCart={refreshCart}
                             error={errorMessage}
                         />}
                     />  

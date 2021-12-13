@@ -9,7 +9,7 @@ import PaymentForm from '../PaymentForm';
 
 const steps = ['Shipping Address', 'Payment Details'];
 
-const Checkout = ({ cart, order, onCaptureCheckout, error }) => {
+const Checkout = ({ cart, order, onCaptureCheckout, refreshCart, error }) => {
     const classes = useStyles();
     const [activeStep, setActiveStep] = useState(0);
     const [checkoutToken, setCheckoutToken] = useState(null);
@@ -62,7 +62,7 @@ const Checkout = ({ cart, order, onCaptureCheckout, error }) => {
                 <Divider className={classes.divider} />
             </div>
             <br />
-            <Button component={Link} to="/" variant="outlined" type="button">Back to Home</Button>
+            <Button component={Link} to="/" variant="outlined" type="button" onClick={refreshCart}>Back to Home</Button>
         </>
     ) : (
         <div className={classes.spinner}>
@@ -80,7 +80,7 @@ const Checkout = ({ cart, order, onCaptureCheckout, error }) => {
 
     const Form = () => activeStep === 0
         ? <AddressForm checkoutToken={checkoutToken} next={next} />
-        : <PaymentForm shippingData={shippingData} checkoutToken={checkoutToken} backStep={backStep} onCaptureCheckout={onCaptureCheckout} nextStep={nextStep} timeout={timeout}/>
+        : <PaymentForm shippingData={shippingData} checkoutToken={checkoutToken} backStep={backStep} onCaptureCheckout={onCaptureCheckout} nextStep={nextStep} timeout={timeout} refreshCart={refreshCart}/>
 
     return (
         <>
