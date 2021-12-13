@@ -13,10 +13,9 @@ const Hero = () => {
 		<section className={classes.root}>
 			<img src={hero} alt="WireKart" className={classes.root}/>
 			<div className={classes.overlay}>
-                <Typography variant="h3" className={classes.title}>
-						One step closer to your
-                        <br/>perfect work from home setup.
-                        <div style={{ paddingTop:"0.5em" }}><ArrowDownward fontSize="large"/></div>
+                <Typography variant="h3" align="center" className={classes.title}>
+						One step closer <br/> to your perfect work from home <br/> setup
+                        <div className={classes.arrow} ><ArrowDownward fontSize="large"/></div>
 			    </Typography>
                 
 			</div>
